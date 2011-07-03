@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:c="http://java.sun.com/jstl/core">
+
+
+<ui:composition template="../templates/template.xhtml">
+
+	<ui:define name="conteudo">
+		<div class="div_coluna_esquerda">
+			<div class="div_livros_destaque">
+				<rich:panel header="Pesquisa de livros">
+				
+				<h:form id="pesquisaLivro">
+					<h:messages />
+					
+					<h:inputText value="#{livroMBean.palavrasChave}"/>
+					<h:commandButton action="#{livroMBean.pesquisarPorPalavraChave}" 
+								value="Pesquisar" style="width: 80px; height:20px;">
+						<a4j:support event="onclick" reRender="dataTable" action=""/>
+					</h:commandButton>
+					<br/><br/>
+					<rich:dataTable id="dataTable" 
+									value="#{livroMBean.livrosResult}" 
+									var="livro"
+									rowKeyVar="index"
+									rows="15">
+						
+						<rich:column width="65%" sortBy="#{livro.titulo}">
+							<f:facet name="header"><h:outputText value="Título" /></f:facet>
+							<h:commandLink value="#{livro.titulo}" action="../pages_public/livro_detalhes.jsf" />
+						</rich:column>
+						
+						<rich:column width="5%" sortBy="#{livro.edicao}">
+							<f:facet name="header"><h:outputText value="Ed." /></f:facet>
+							<h:outputText value="#{livro.edicao}"/>
+						</rich:column>
+						
+						<rich:column width="20%" sortBy="#{livro.estante.numero}">
+							<f:facet name="header"><h:outputText value="Estante" /></f:facet>
+							<h:outputText value="#{livro.estante.descricao} - #{livro.estante.numero}"/>
+						</rich:column>
+						
+						<rich:column width="10%" style="text-align: center;">
+							<f:facet name="header"><h:outputText value="+Info" /></f:facet>
+							<a4j:commandLink id="sinopse">
+								<h:graphicImage url="../imagens/lupa.png" width="16px"/>
+							</a4j:commandLink>
+							<rich:toolTip for="sinopse">
+								<h:outputText value="Sinopse:" style="font-weight:bold;"/><br/>
+								<h:outputText value="#{livro.sinopse}"/>
+							</rich:toolTip>
+						</rich:column>
+						
+						
+						<f:facet name="footer">
+							<rich:datascroller renderIfSinglePage="false" for="dataTable"/>
+           	 			</f:facet>
+						
+					</rich:dataTable>
+					
+				</h:form>
+				
+				</rich:panel>
+				
+			</div>
+
+			<div class="div_y">
+			</div>
+		</div>
+
+		<div class="div_coluna_direita">
+			<div class="div_ultimos_adicionados">
+			</div>
+
+			<div class="div_x" style="text-align: center;">
+			</div>
+		</div>
+	</ui:define>
+
+</ui:composition>
+
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:c="http://java.sun.com/jstl/core">
+
+<body>
+	<ui:composition template="../templates/template.xhtml">
+
+		<ui:define name="conteudo">
+			<div class="div_coluna_esquerda">
+				<div class="div_livros_destaque">
+					<h3 style="text-align: center;">Últimas novidades</h3>
+					<div style="margin: 20px; width: 400px;">
+						<rich:dataGrid value="#{livroMBean.pegaUltimosCadastrados}" var="aux" columns="2" elements="8" style="margin: auto;">
+							<center>
+								<h2>
+									<h:outputText value="#{aux.titulo}" />
+								</h2>
+							</center>
+							<h:panelGrid columns="1">
+								
+								<h:form>
+									<h:commandLink action="../pages_public/livro_detalhes.jsf" >
+										<img src="../imagens/book.png" width="110px" height="120px;" style="margin: 0 0 0 15px;" />
+										<f:setPropertyActionListener value="#{aux}" target="#{livroMBean.livro}" />
+									</h:commandLink>
+								</h:form>
+							</h:panelGrid>
+						</rich:dataGrid>
+					</div>
+				</div>
+
+				<div class="div_y"></div>
+			</div>
+
+			<div class="div_coluna_direita">
+				<div class="div_ultimos_adicionados">
+					<c:if test="#{!usuarioMBean.usuario.logado}">
+						<h3 style="text-align: center;">Entrar no sistema</h3>
+						<div style="text-align: center;">
+							<h:form>
+								<h:outputLabel value="E-mail: " />
+								<h:inputText value="#{usuarioMBean.emailLogin}" />
+								<br />
+								<br />
+
+								<h:outputLabel value="Senha: " />
+								<h:inputSecret value="#{usuarioMBean.senhaLogin}" />
+								<br />
+								<br />
+
+								<div align="center">
+									<h:commandButton action="#{usuarioMBean.fazerLogin}"
+										value="Logar" />
+
+									<h:commandButton action="tela_cadastro.jsf"
+										value="Cadastrar-se" />
+								</div>
+							</h:form>
+						</div>
+					</c:if>
+					<c:if test="#{usuarioMBean.usuario.logado}">
+						<h3 style="text-align: center;">
+							Seja bem-vindo <br />
+							<h:outputText value="#{usuarioMBean.usuario.nome}" />
+							<center>
+								<c:if test="#{usuarioMBean.usuario.tipo eq 'admin'}">
+									<img src="../imagens/user_admin.png" width="120px"
+										height="120px" />
+								</c:if>
+								<c:if test="#{usuarioMBean.usuario.tipo eq 'normal'}">
+									<img src="../imagens/user.png" width="120px" height="120px" />
+								</c:if>
+								<br /> <br />
+								<c:if test="#{usuarioMBean.usuario.tipo eq 'normal'}">
+									<h:form>
+										<h:commandButton action="#{usuarioMBean.fazerLogout}"
+											value="Sair" style="width: 120px; height: 30px" />
+									</h:form>
+								</c:if>
+							</center>
+						</h3>
+					</c:if>
+				</div>
+
+				<div class="div_x" style="text-align: center;">
+					<h3>Sobre o sistema</h3>
+					<div style="text-align: center; margin: 20px;">
+						<img src="../imagens/about.gif" style=" float: left;" />
+						A Biblioteca Online é um sistema desenvolvido por alunos do curso
+						Superior em Sistemas para Internet do IFPB o qual visa oferecer a
+						seus usuários uma junção das fucionalidades de uma biblioteca
+						convencional com as funcionalidades de uma livraria online.
+					</div>
+				</div>
+			</div>
+		</ui:define>
+
+	</ui:composition>
+</body>
+</html>

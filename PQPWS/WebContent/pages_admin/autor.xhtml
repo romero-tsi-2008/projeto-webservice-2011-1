@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+
+<ui:composition template="../templates/template.xhtml">
+	<ui:define name="conteudo">
+		<f:view>
+			<div class="div_coluna_esquerda">
+				<div class="div_livros_destaque">
+					
+					<rich:panel header="Gerenciamento de Autor" >
+					<h:form id="listaAutores">
+					<h:messages />
+					<rich:dataTable id="dataTable" 
+									value="#{autorMBean.all}" 
+									var="autor"
+									rowKeyVar="index"
+									rows="15">
+						
+						<rich:column width="5%">
+							<f:facet name="header"><h:outputText value="Nº" /></f:facet>
+							<h:outputText value="#{index+1}"/>
+						</rich:column>
+						
+						<rich:column width="55%" sortBy="#{autor.nome}">
+							<f:facet name="header"><h:outputText value="Nome" /></f:facet>
+							<h:outputText value="#{autor.nome} #{autor.sobrenome}"/>
+						</rich:column>
+						
+						<rich:column width="25%" sortBy="#{autor.nacionalidade}">
+							<f:facet name="header"><h:outputText value="Nacionalidade" /></f:facet>
+							<h:outputText value="#{autor.nacionalidade}"/>
+						</rich:column>
+						
+						<rich:column width="7%" style="text-align: center;">
+							<f:facet name="header"><h:outputText value="Editar" /></f:facet>
+							<h:commandLink action="#{autorMBean.editar}">
+								<f:setPropertyActionListener value="#{autor}" target="#{autorMBean.autor}"/>
+								<h:graphicImage url="../imagens/edit.gif" width="16px"/>
+							</h:commandLink>
+						</rich:column>
+
+						<rich:column width="7%" style="text-align: center;">
+							<f:facet name="header"><h:outputText value="Excluir" /></f:facet>
+							<h:commandLink action="#{autorMBean.remover}">
+								<f:setPropertyActionListener target="#{autorMBean.autor}" value="#{autor}"/>
+								<h:graphicImage url="../imagens/delete.png" width="16px"/>
+							</h:commandLink>
+						</rich:column>
+						
+						<f:facet name="footer">
+							<rich:datascroller renderIfSinglePage="false" for="dataTable"/>
+           	 			</f:facet>
+						
+					</rich:dataTable>
+					
+					<center style="margin-top: 10px;">
+					<h:commandLink id="imageAdd" action="cadastro_autor.jsf">
+						<h:graphicImage url="../imagens/add_blue.png"/>
+					</h:commandLink>
+					</center>
+					
+					</h:form>
+					</rich:panel>
+				</div>
+			</div>
+		</f:view>
+	</ui:define>
+</ui:composition>
+
+
+
+</html>

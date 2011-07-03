@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+
+<ui:composition template="../templates/template.xhtml">
+	<ui:define name="conteudo">
+		<f:view>
+			<div class="div_coluna_esquerda">
+				<div class="div_livros_destaque">
+					<rich:panel header="Gerenciamento de Usuários" style="font-size: 14px;">
+						<h:outputText value="#{usuarioMBean.usuario.tipo}" />
+						<h:form id="listaUsuarios">
+							<rich:dataTable id="dataTable" value="#{usuarioMBean.all}"
+								var="usuario" rowKeyVar="index" rows="15">
+
+								<rich:column width="5%">
+									<f:facet name="header">
+										<h:outputText value="Nº" />
+									</f:facet>
+									<h:outputText value="#{index+1}" />
+								</rich:column>
+
+								<rich:column width="45%" sortBy="#{usuario.nome}">
+									<f:facet name="header">
+										<h:outputText value="Nome" />
+									</f:facet>
+									<h:outputText value="#{usuario.nome} #{usuario.sobrenome}" />
+								</rich:column>
+								
+								<rich:column width="35%" sortBy="#{usuario.email}">
+									<f:facet name="header">
+										<h:outputText value="E-mail" />
+									</f:facet>
+									<h:outputText value="#{usuario.email}" />
+								</rich:column>
+
+								<rich:column width="8%" style="text-align: center;">
+									<f:facet name="header"><h:outputText value="Editar" /></f:facet>
+									<h:commandLink action="#{usuarioMBean.editar}">
+										<f:setPropertyActionListener value="#{usuario}" target="#{usuarioMBean.usuario}"/>
+										<h:graphicImage url="../imagens/edit.gif" width="16px"/>
+									</h:commandLink>
+								</rich:column>
+		
+								<rich:column width="7%" style="text-align: center;">
+									<f:facet name="header"><h:outputText value="Excluir" /></f:facet>
+									<h:commandLink action="#{usuarioMBean.remover}">
+										<f:setPropertyActionListener target="#{usuarioMBean.usuario}" value="#{usuario}"/>
+										<h:graphicImage url="../imagens/delete.png" width="16px"/>
+									</h:commandLink>
+								</rich:column>
+								
+								<f:facet name="footer">
+									<rich:datascroller renderIfSinglePage="false" for="dataTable"/>
+		           	 			</f:facet>
+								
+							</rich:dataTable>
+						</h:form>
+					
+					<div align="center" style="margin-top: 10px;">
+						<a href="../pages_admin/cadastro_usuario.jsf"> <img src="../imagens/add_blue.png"/> </a>
+					</div>	
+						
+					</rich:panel>
+
+					
+				</div>
+			</div>
+		</f:view>
+	</ui:define>
+</ui:composition>
+
+
+
+</html>

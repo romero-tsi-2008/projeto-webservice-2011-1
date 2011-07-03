@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+
+<ui:composition template="/templates/template.xhtml">
+	<ui:define name="conteudo">
+		<div class="div_coluna_esquerda">
+			<div class="div_cadastro_generic" style="text-align: center;">
+				<rich:panel header="Detalhes do Livro" >
+						<h:messages />
+						<img src="../imagens/book.png" width="150px" height="160px" /> <br/><br/>
+						<h:outputLabel value="ISBN: " />
+						<h:outputText value="#{livroMBean.livro.isbn}" /> <br/> <br/>
+
+						<h:outputLabel value="Título: " />
+						<h:outputText value="#{livroMBean.livro.titulo}" /> <br /><br/>
+
+						<h:outputLabel value="Autor(es): " />
+						
+						<h:outputLabel value="Categoria: " />
+						<h:outputText value="#{livroMBean.livro.categoria.descricao}" /> <br/> <br/>
+
+						<h:outputLabel value="Editora: " />
+						<h:outputText value="#{livroMBean.livro.editora.descricao}" /> <br/> <br/>
+
+						<h:outputLabel value="Ano: " />
+						<h:outputText value="#{livroMBean.livro.ano}" /> <br/> <br/>
+
+						<h:outputLabel value="Sinopse: " />
+						<h:outputText value="#{livroMBean.livro.sinopse}" rows="15" cols="67"> </h:outputText> <br/> <br/>
+
+						<h:outputLabel value="Número de páginas: " />
+						<h:outputText value="#{livroMBean.livro.paginas}" /> <br/> <br/>
+
+						<h:outputLabel value="Idioma: " />
+						<h:outputText value="#{livroMBean.livro.idioma.descricao}" /> <br/> <br/>
+
+						<h:outputLabel value="Edição: " />
+						<h:outputText value="#{livroMBean.livro.edicao}" /> <br/> <br/>
+
+						<h:outputLabel value="Estante: " />
+						<h:outputText value="#{livroMBean.livro.estante.numero} - #{livroMBean.livro.estante.descricao}" /> <br/> <br/>
+						<br />
+						<br />
+
+						<h:outputLabel value="Estoque: " />
+						<h:outputLabel value="Total: " /><h:outputText value="#{livroMBean.livro.estoque.volumes_totais}" /> <br/> <br/>
+						<h:outputLabel value="Disponíveis: " /><h:outputText value="#{livroMBean.livro.estoque.volumes_disponiveis}" /> <br/> <br/>
+						<h:outputLabel value="Emprestados: " /><h:outputText value="#{livroMBean.livro.estoque.volumes_emprestados}" /> <br/> <br/>
+				</rich:panel>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

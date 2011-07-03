@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:rich="http://richfaces.org/rich">
+      
+<body>
+<div class="detalhe_menu_sombra" ></div>
+<div class="detalhe_menu" ></div>          
+
+<ul>
+	<li><a href="../pages_admin/index.jsf">Home</a></li>
+
+	<div class="separador_sombra"></div>
+	<div class="separador"></div>
+
+	<li>
+		Cadastrar
+		<ul class="submenu">
+			<li><a href="../pages_admin/autor.jsf">Autor</a></li>
+			<li><a href="../pages_admin/categoria.jsf">Categoria</a></li>
+			<li><a href="../pages_admin/editora.jsf">Editora</a></li>
+			<li><a href="../pages_admin/estante.jsf">Estante</a></li>
+			<li><a href="../pages_admin/idioma.jsf">Idioma</a></li>
+			<li><a href="../pages_admin/livro.jsf">Livro</a></li>
+			<li><a href="../pages_admin/usuario.jsf">Usuário</a></li>
+		</ul>	
+	</li>
+
+	<div class="separador_sombra"></div>
+	<div class="separador"></div>
+
+	<li><a href="#">Solicitações</a></li>
+
+</ul>
+	<h:form>
+		<h:commandButton action="#{usuarioMBean.fazerLogout}" value="Sair" style="width: 120px; height: 30px"/>
+	</h:form>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:c="http://java.sun.com/jstl/core">
+
+<ui:composition template="/templates/template.xhtml">
+	<ui:define name="conteudo">
+		<div class="div_coluna_esquerda">
+			<div class="div_cadastro_generic">
+				<rich:panel header="Cadastro de nova conta" >
+					<h:form id="form_cadastro_usuario">
+						<h:messages />
+						<h:outputLabel value="Nome: " />
+						<h:inputText value="#{usuarioMBean.usuario.nome}" /> <br/> <br/>
+
+						<h:outputLabel value="Sobrenome: " />
+						<h:inputText value="#{usuarioMBean.usuario.sobrenome}" /> <br/> <br/>
+
+						<h:outputLabel value="Matrícula: " />
+						<h:inputText value="#{usuarioMBean.usuario.matricula}" /> <br/> <br/>
+
+						<h:outputLabel value="CPF " />
+						<h:inputText value="#{usuarioMBean.usuario.cpf}" />
+						<br/> <br/>  
+						
+						<h:outputLabel value="Data de nascimento: " />
+							<rich:calendar value="#{usuarioMBean.usuario.data_nascimento}" datePattern="dd/MM/yyyy" />
+						<br/> <br/>  
+
+						<h:outputLabel value="E-mail: " />
+						<h:inputText value="#{usuarioMBean.usuario.email}" /> <br/> <br/>
+						
+						<h:outputLabel value="Telefone: " />
+						<h:inputText value="#{usuarioMBean.usuario.telefone}" /> <br/> <br/>
+						
+						<h:outputLabel value="Tipo de perfil (normal/admin): " />
+						<h:inputText value="#{usuarioMBean.usuario.tipo}" /> <br/> <br/>
+
+						<h:outputLabel value="Senha: " />
+						<h:inputSecret value="#{usuarioMBean.senha1}" /> <br/> <br/>
+						
+						<h:outputLabel value="Senha novamente: " />
+						<h:inputSecret value="#{usuarioMBean.senha2}" /> <br/> <br/>
+
+						
+
+						<div align="center">
+							<h:commandButton action="#{usuarioMBean.cadastrar}" value="Cadastrar" />
+						</div>
+					</h:form>
+				</rich:panel>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>
