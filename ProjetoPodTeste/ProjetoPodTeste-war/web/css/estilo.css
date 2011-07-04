@@ -1,0 +1,173 @@
+
+body{
+	/*background-color:#EEE9E9;*/
+	background-image: url("../imagens/bg.gif");
+	background-repeat: repeat-xy;
+}
+
+img{
+	border:0px;
+}
+
+a{
+	text-decoration: none;	
+}
+a:hover{
+	text-decoration: underline;	
+}
+
+#container{
+	width:798px;
+	margin:auto;
+	font-family:Verdana, sans-serif;
+}
+
+#cabecalho{
+	width:100%;
+	height:150px;
+	background-color:#B0E2FF;
+	background-image:url("../imagens/banner.jpg");
+	float:left;
+	-moz-border-radius: 15px 15px 0 0;
+    border-radius: 15px 15px 0 0;
+}
+
+#menu{
+	width:100%;
+	height:30px;
+	background-color:#A4D3EE;
+	float:left;
+}
+
+#conteudo{
+	width:100%;
+	min-height:400px;
+	background-color:#1f355d;
+	float:left;
+	color: #FFF;
+}
+
+#rodape{
+	width:100%;
+	height:100px;
+	background-color:#607B8B;
+	-moz-border-radius: 0 0 15px 15px;
+    border-radius: 0 0 15px 15px;
+	
+	background: -webkit-gradient(linear, left top, left bottom, from(#1f355d), to(#152540));/* webkit browsers, Chrome */
+	background: -moz-linear-gradient(top, #1f355d, #152540);/* firefox3.6+ */
+	
+	float:left;
+}
+#rodape p{
+	font-size:8pt;
+	color:#FFF;
+	text-align:center;
+	margin-top:35px;
+}
+
+/**********************************************************/
+.datatable{
+	padding:3px;
+	margin: auto;
+}
+.datatable th{
+	border-top:1px;
+	border-right:1px;
+	border-left:1px;
+	border-color: #FFF;
+	border-style: solid;
+}
+.datatable tr:nth-child(2n+2){
+	background-color: #F8F8FF;
+}
+.coluna_lv1 {
+	width: 320px;
+}
+.coluna_lv2 {
+	width: 240px;
+}
+.coluna_lv3 {
+	width: 150px;
+}
+.coluna_lv4 {
+	text-align: center;
+	width: 25px;
+}
+
+.botao_cinza {
+	background-color: #F5F5F5;
+	border: 1px solid #DCDCDC;
+	padding: 3px;
+	font-weight: bold;
+}
+
+.titulo {
+	color: #FFF;
+	text-align: center;	
+}
+
+.link_new {
+	margin: 15px;	
+}
+
+.form_cadastro {
+	margin: auto;
+	padding: 20px;
+}
+/**********************************************************/
+.div_conteudo_superior{
+	width: 100%;
+	float: left;
+	height: 100px;
+}
+
+.div_coluna_esquerda{
+	width: 60%;
+	float: left;
+}
+
+.div_coluna_direita{
+	width: 40%;
+	float: left;
+}
+
+.div_livros_destaque {
+	width: 97%;
+	height: 500px;
+	float: left;
+	border: 2px solid #6495ED;
+	margin: 10px;
+}
+
+.div_cadastro_generic {
+	width: 97%;	
+	float: left;
+	border: 2px solid #6495ED;
+	margin: 10px;	
+}
+
+.div_y {
+	width: 97%;
+	height: 120px;
+	float: left;
+	border: 2px solid #6495ED;
+	margin: 0px 10px 10px 10px;
+}
+
+.div_ultimos_adicionados {
+	width: 92%;
+	height: 320px;
+	float: left;
+	border: 2px solid #6495ED;
+	margin: 10px;
+	clear: left;
+}
+
+.div_x {
+	width: 92%;
+	height: 300px;
+	float: left;
+	border: 2px solid #6495ED;
+	margin: 0px 10px 10px 10px;
+}
