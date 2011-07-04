@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+
+
+<ui:composition template="../templates/template.xhtml">
+
+	<ui:define name="conteudo">
+		<div class="div_coluna_esquerda">
+			<div class="div_livros_destaque">
+				<h1>livros em destaque
+                                </h1>
+			</div>
+
+			<div class="div_y">
+				<h1>eeeeehhhhh</h1>
+			</div>
+		</div>
+
+		<div class="div_coluna_direita">
+			<div class="div_ultimos_adicionados">
+				<h3 style="text-align: center;">Entrar no sistema</h3>
+				<div style="text-align: center;">
+					<h:form>
+						<h:outputLabel value="E-mail: " />
+						<h:inputText value="#{usuarioMBean.usuario.email}" />
+						<br />
+						<br />
+
+						<h:outputLabel value="Senha: " />
+						<h:inputText value="#{usuarioMBean.usuario.senha}" />
+						<br />
+						<br />
+
+						<div align="center">
+							<h:commandButton action="#{usuarioMBean.fazerLogin}"
+								value="Logar" />
+							<a href="tela_cadastro.jsf"> Criar conta </a>
+						</div>
+					</h:form>
+				</div>
+			</div>
+
+			<div class="div_x" style="text-align: center;">
+				<h3>Sobre o sistema</h3>
+				<div style="text-align: center;">
+					<img src="../imagens/about.gif" style="display: inline-block;" /> A
+					Biblioteca Online é um sistema desenvolvido por alunos do curso
+					Superior em Sistemas para Internet do IFPB o qual visa oferecer a
+					seus usuários uma junção das fucionalidades de uma biblioteca
+					convencional com as funcionalidades de uma livraria online.
+				</div>
+			</div>
+		</div>
+	</ui:define>
+
+</ui:composition>
+
+</html>

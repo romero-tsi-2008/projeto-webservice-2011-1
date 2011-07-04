@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+
+<ui:composition template="/templates/template.xhtml">
+	<ui:define name="conteudo">
+		<div class="div_coluna_esquerda">
+			<div class="div_cadastro_generic">
+				<rich:panel header="Cadastro de Livro" >
+					<h:form>
+						<h:outputLabel value="ISBN: " />
+						<h:inputText value="#{livroMBean.livro.isbn}" /> <br/> <br/>
+
+						<h:outputLabel value="Título: " />
+						<h:inputText value="#{livroMBean.livro.titulo}" /> <br/> <br/>
+
+						<h:outputLabel value="Autor: " />
+						<h:inputText value="#{livroMBean.livro.autor}" /> <br/> <br/>
+
+						<h:outputLabel value="Categoria: " />
+						<h:selectOneMenu value="#{livroMBean.livro.categoria}" style="width: 150px;">
+							<f:selectItems value="#{livroMBean.listaDeCategorias}" />
+						</h:selectOneMenu> <br/> <br/>  
+
+						<h:outputLabel value="Editora: " />
+						<h:selectOneMenu value="#{livroMBean.livro.editora}" style="width: 150px;">
+							<f:selectItems value="#{livroMBean.listaDeEditoras}" />
+						</h:selectOneMenu> <br/> <br/>  
+
+						<h:outputLabel value="Ano: " />
+						<h:inputText value="#{livroMBean.livro.ano}" /> <br/> <br/>
+
+						<h:outputLabel value="Sinopse: " />
+						<h:inputTextarea value="#{livroMBean.livro.sinopse}" rows="15" cols="67"> </h:inputTextarea> <br/> <br/>
+
+						<h:outputLabel value="Número de páginas: " />
+						<h:inputText value="#{livroMBean.livro.paginas}" /> <br/> <br/>
+
+						<h:outputLabel value="Idioma: " />
+						<h:inputText value="#{livroMBean.livro.idioma}" /> <br/> <br/>
+
+						<h:outputLabel value="Edição: " />
+						<h:inputText value="#{livroMBean.livro.edicao}" /> <br/> <br/>
+
+						<h:outputLabel value="Estante: " />
+						<h:selectOneMenu value="#{livroMBean.livro.estante}" style="width: 150px;">
+							<f:selectItems value="#{livroMBean.listaDeEstantes}" />
+						</h:selectOneMenu>
+						<br />
+						<br />
+
+						<h:outputLabel value="Quantidade: " />
+						<h:inputText value="#{livroMBean.livro.estoque.volumes_disponiveis}" /> <br/> <br/>
+
+						<div align="center">
+							<h:commandButton action="#{livroMBean.cadastrar}" value="Cadastrar" />
+						</div>
+					</h:form>
+				</rich:panel>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

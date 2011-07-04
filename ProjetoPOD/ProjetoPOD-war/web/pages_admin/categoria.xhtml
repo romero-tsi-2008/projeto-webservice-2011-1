@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+
+<ui:composition template="../templates/template.xhtml">
+	<ui:define name="conteudo">
+		<f:view>
+			<div class="div_coluna_esquerda">
+				<div class="div_livros_destaque">
+					<h1 align="center">Cadastro de Categoria</h1>
+					
+					<h:form>
+					
+					<rich:dataTable id="dataTable" 
+									value="#{categoriaMBean.all}" 
+									var="categoria"
+									rowKeyVar="index">
+						
+						<rich:column width="5%">
+							<f:facet name="header"><h:outputText value="Nº" /></f:facet>
+							<h:outputText value="#{index+1}"/>
+						</rich:column>
+						
+						<rich:column width="80%" sortBy="#{categoria.descricao}">
+							<f:facet name="header"><h:outputText value="Descrição" /></f:facet>
+							<h:outputText value="#{categoria.descricao}"/>
+						</rich:column>
+						
+						<rich:column width="7%" style="text-align: center;">
+							<f:facet name="header"><h:outputText value="Editar" /></f:facet>
+							<h:commandLink action="#{categoriaMBean.editar}">
+								<f:setPropertyActionListener value="#{categoria}" target="#{categoriaMBean.categoria}"/>
+								<h:graphicImage url="../imagens/edit.gif" width="16px"/>
+							</h:commandLink>
+						</rich:column>
+
+						<rich:column width="7%" style="text-align: center;">
+							<f:facet name="header"><h:outputText value="Excluir" /></f:facet>
+							<h:commandLink action="#{categoriaMBean.remover}">
+								<f:setPropertyActionListener target="#{categoriaMBean.categoria}" value="#{categoria}"/>
+								<h:graphicImage url="../imagens/delete.png" width="16px"/>
+							</h:commandLink>
+						</rich:column>
+						
+					</rich:dataTable>
+					
+					<center style="margin-top: 10px;">
+					<h:commandLink id="imageAdd" action="cadastro_categoria.jsf">
+						<h:graphicImage url="../imagens/add_blue.png"/>
+					</h:commandLink>
+					</center>
+					
+					</h:form>
+				</div>
+			</div>
+		</f:view>
+	</ui:define>
+</ui:composition>
+
+
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+
+<ui:composition template="/templates/template.xhtml">
+	<ui:define name="conteudo">
+		<div class="div_coluna_esquerda">
+			<div class="div_cadastro_generic">
+				<rich:panel header="Cadastro de Autor">
+					<a4j:form id="cadastro_autor">
+						<h:outputLabel value="Nome: " />
+						<h:inputText value="#{autorMBean.autor.nome}" />
+						<br />
+						<br />
+
+						<h:outputLabel value="Sobrenome: " />
+						<h:inputText value="#{autorMBean.autor.sobrenome}" />
+						<br />
+						<br />
+
+						<h:outputLabel value="Data de nascimento: " />
+						<rich:calendar value="#{autorMBean.autor.data_nascimento}" datePattern="dd/MM/yyyy" />
+						<br />
+						<br />
+
+						<h:outputLabel value="Livro(s): " />
+						<rich:pickList>
+							<f:selectItems value="#{livroMBean.all}" />
+						</rich:pickList>
+						<br />
+						<br />
+
+						<h:outputLabel value="Nacionalidade: " />
+						<h:inputText value="#{autorMBean.autor.nacionalidade}" />
+						<br />
+						<br />
+
+						<div>
+							<h:outputLabel value="Sobre o autor: " />
+						</div>
+						<h:inputTextarea value="#{autorMBean.autor.sobre}" rows="15"
+							cols="68">
+						</h:inputTextarea>
+						<br />
+						<br />
+
+						<a4j:commandButton action="#{autorMBean.cadastrar}" value="Cadastrar" /> 
+					</a4j:form>
+				</rich:panel>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>
